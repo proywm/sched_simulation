@@ -3,9 +3,11 @@ o1sim_skeleton
 mlfqsim
 *.o
 
-# Generated visuals
+# Generated visuals (keep examples tracked)
 *.png
 *.gif
+!examples/*.png
+!examples/*.gif
 
 # Python cache
 __pycache__/

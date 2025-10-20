@@ -8,6 +8,7 @@ Contents
 - o1viz.py — Visualizer for simulator output (timeline + queue GIF)
 - Makefile — Builds both simulators
 - README.md — This guide, plus running instructions and mapping tips
+ - examples/ — Pre-generated 500ms visuals for O(1) and MLFQ
 
 How to build
 
@@ -35,6 +36,9 @@ python3 o1viz.py --bin ./o1sim_skeleton --src ./o1sim_skeleton.c --mode o1 --max
 python3 o1viz.py --bin ./mlfqsim --src ./mlfqsim.c --mode mlfq --max-ms 500 \
   --cmd "spin 10000 &; spin 200000 &; spin 3000000 &;" --out-gantt mlfq_timeline_500ms.png --out-queues mlfq_queues_500ms.gif
 ```
+
+Pre-generated visuals
+- See the `examples/` folder for ready-made outputs: `o1_timeline_500ms.png`, `o1_queues_500ms.gif`, `mlfq_timeline_500ms.png`, `mlfq_queues_500ms.gif`.
 
 Mapping to xv6
 - Add to `struct proc` (proc.h): ticks_left, qnext, in_queue
