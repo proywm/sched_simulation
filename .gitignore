@@ -1,0 +1,15 @@
+# Build artifacts
+o1sim_skeleton
+mlfqsim
+*.o
+
+# Generated visuals
+*.png
+*.gif
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
