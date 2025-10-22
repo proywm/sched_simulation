@@ -62,6 +62,26 @@ static void userinit_spin(const char *cmd) {
   // TODO: parse tokens and create spin procs with work_ms from integers
   // Suggested minimal implementation sufficient for provided examples:
   // - Scan for "spin" then read next integer as work_ms; ignore '&;' separators.
+  const char *s=cmd;
+  while(*s){
+    // Skip whitespace and separators
+    while(*s==' '||*s=='\t'||*s==';'||*s=='&') s++;
+    if(!*s) break;
+
+    // Recognize the command name
+    if(strncmp(s,"spin",4)==0){
+      s += 4;
+      while(*s==' '||*s=='\t') s++;
+      // Parse decimal integer for work in ms
+      int ms = 0;
+      while(*s>='0'&&*s<='9') { ms = ms*10 + (*s-'0'); s++; }
+      if(ms>0) new_proc("spin", ms);
+    }
+
+    // Skip to next separator
+    while(*s && *s!=';') s++;
+    if(*s==';') s++;
+  }
 }
 
 static void proc_exit(proc_t *p) {
